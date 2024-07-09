@@ -1,6 +1,6 @@
 {
   "name": "drupal/block_type_templates",
-  "description": "Provides modular design components, affording consistent patterns driven through Drupal's block system",
+  "description": "Provides modular design components, affording consistent patterns driven through Drupal's block system.",
   "type": "drupal-module",
   "license": "GPL-2.0-or-later",
   "keywords": ["Drupal"],

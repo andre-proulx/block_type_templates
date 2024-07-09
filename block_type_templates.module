@@ -5,7 +5,20 @@
  * Provides the necessary hooks for the block_type_templates module.
  */
 
-use \Drupal\block_content\BlockContentInterface;
+use Drupal\block_content\BlockContentInterface;
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function block_type_templates_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.block_type_templates':
+      $output = '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t("Provides modular design components, affording consistent patterns driven through Drupal's block system.") . '</p>';
+      return $output;
+  }
+}
 
 /**
  * Implements hook_theme_suggestions_HOOK_alter().
