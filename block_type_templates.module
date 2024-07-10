@@ -6,6 +6,7 @@
  */
 
 use Drupal\block_content\BlockContentInterface;
+use Drupal\Component\Utility\Html;
 use Drupal\Core\Routing\RouteMatchInterface;
 
 /**
@@ -56,4 +57,23 @@ function block_type_templates_theme_suggestions_block_alter(array &$suggestions,
   }
   // Remove duplicates.
   $suggestions = array_unique($suggestions);
+}
+
+/**
+ * Implements template_preprocess_block().
+ */
+function block_type_templates_preprocess_block(&$variables) {
+  // Inline blocks are placed with Layout Builder.
+  if ($variables['base_plugin_id'] == 'inline_block') {
+    $variables['attributes']['class'][] = 'inline-block';
+    $bundle = Html::cleanCssIdentifier($variables['derivative_plugin_id']);
+    $variables['attributes']['class'][] = 'block-type--' . $bundle;
+  }
+
+  // Block content blocks are placed with block layout.
+  if ($variables['base_plugin_id'] == 'block_content') {
+    $variables['attributes']['class'][] = 'block-content';
+    $bundle = Html::cleanCssIdentifier($variables['elements']['content']['#block_content']->bundle());
+    $variables['attributes']['class'][] = 'block-type--' . $bundle;
+  }
 }
