@@ -3,7 +3,9 @@
   "description": "Provides modular design components, affording consistent patterns driven through Drupal's block system.",
   "type": "drupal-module",
   "license": "GPL-2.0-or-later",
-  "keywords": ["Drupal"],
+  "keywords": [
+    "Drupal"
+  ],
   "homepage": "https://www.drupal.org/project/block_type_templates",
   "authors": [
     {
@@ -22,5 +24,7 @@
     "issues": "https://www.drupal.org/project/issues/block_type_templates",
     "source": "https://git.drupalcode.org/project/block_type_templates"
   },
-  "require": {  }
+  "require": {
+    "drupal/core": "^10 || ^11"
+  }
 }
